@@ -109,6 +109,20 @@ const heartImages = [
   "images/img20.jpg",
   "images/img21.jpg",
   "images/img22.jpg",
+  "images/img23.jpg",
+  "images/img24.jpg",
+  "images/img25.jpg",
+  "images/img26.jpg",
+  "images/img27.jpg",
+  "images/img28.jpg",
+  "images/img29.jpg",
+  "images/img30.jpg",
+  "images/img31.jpg",
+  "images/img32.jpg",
+  "images/img33.jpg",
+  "images/img34.jpg",
+  "images/img35.jpg",
+  "images/img36.jpg",
 ];
 
 const textureLoader = new THREE.TextureLoader();
