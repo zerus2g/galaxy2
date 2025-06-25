@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from i-love-you-sable.vercel.app/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Jun 2025 04:21:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galaxy with Zoom Effect</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.152.2/build/three.module.js",
+      "three/addons/controls/OrbitControls.js": "https://unpkg.com/three@0.152.2/examples/jsm/controls/OrbitControls.js",
+      "three/examples/jsm/loaders/FontLoader.js": "https://unpkg.com/three@0.152.2/examples/jsm/loaders/FontLoader.js",
+      "three/examples/jsm/geometries/TextGeometry.js": "https://unpkg.com/three@0.152.2/examples/jsm/geometries/TextGeometry.js"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="container"></div>
+
+  <div id="landscape-warning">
+    <div class="warning-content">
+      <div class="rotate-icon"></div>
+      <h1>Tinh Cầu</h1>
+      <p style="font-size: 0.6em;">Cậu hãy xoay ngang màn hình nha để thấy điều kỳ diệu!</p>
+      <p style="font-size: 0.6em;">Nhớ chạm vào tinh cầu ở giữa để mở quà bí mật nha.</p>
+      <div class="stars-bg"></div>
+    </div>
+  </div>
+
+  <div id="dark-overlay"></div>
+  <div id="info"></div>
+
+  <script>
+    // 🛡️ Ghi lại click sớm vào tinh thể
+    let earlyClickEvent = null;
+
+    document.addEventListener("click", (e) => {
+      const crystal = document.querySelector('#crystal'); // Đổi ID nếu khác
+      if (crystal && crystal.contains(e.target)) {
+        earlyClickEvent = e;
+      }
+    }, true);
+
+    // 🔍 Kiểm tra DevTools
+    function isDevToolsOpen() {
+      const start = performance.now();
+      debugger;
+      const end = performance.now();
+      return end - start > 160;
+    }
+
+    // 📦 Tải script chính
+    function loadMainScript() {
+      const script = document.createElement("script");
+      script.type = "module";
+      script.src = "script.js";
+      script.onload = () => {
+        if (earlyClickEvent) {
+          const target = earlyClickEvent.target;
+          if (target && typeof target.click === "function") {
+            setTimeout(() => target.click(), 100);
+          }
+        }
+      };
+      document.body.appendChild(script);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const isPortrait = window.innerHeight > window.innerWidth;
+      document.body.classList.toggle("portrait", isPortrait);
+
+      if (isDevToolsOpen()) {
+        document.body.innerHTML = `
+          <h1 style="text-align:center;margin-top:100px;color:red">
+            🔒 Đụ mẹ tự code đi thằng lồn
+          </h1>`;
+      } else {
+        loadMainScript();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      document.body.classList.toggle("portrait", window.innerHeight > window.innerWidth);
+    });
+
+    window.addEventListener("orientationchange", () => {
+      document.body.classList.toggle("portrait", window.innerHeight > window.innerWidth);
+    });
+
+    // 🔒 Chống DevTools & thao tác
+    document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["i", "j", "c", "s"].includes(e.key.toLowerCase())) ||
+        (e.ctrlKey && e.key.toLowerCase() === "u") ||
+        (e.metaKey && e.altKey && e.key.toLowerCase() === "i") ||
+        (e.metaKey && e.key.toLowerCase() === "u") ||
+        ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "a")
+      ) {
+        e.preventDefault();
+      }
+    });
+
+    document.addEventListener("dragstart", (e) => e.preventDefault());
+
+    // 🧙‍♂️ Phát hiện mở console
+    (function () {
+      const element = new Image();
+      Object.defineProperty(element, "id", {
+        get: function () {
+          document.body.innerHTML = `
+            <h1 style="text-align:center;margin-top:100px;color:red">
+              ⚠️ Đừng mở console!
+            </h1>`;
+          throw new Error("Console is blocked");
+        }
+      });
+
+      setInterval(() => {
+        console.log(element);
+        console.clear();
+      }, 2000);
+    })();
+  </script>
+</body>
+
+<!-- Mirrored from i-love-you-sable.vercel.app/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Jun 2025 04:21:59 GMT -->
+</html>
