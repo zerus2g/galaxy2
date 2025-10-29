@@ -645,7 +645,7 @@ scene.add(planet);
 
 // ---- TẠO CÁC VÒNG CHỮ QUAY QUANH HÀNH TINH ----
 const ringTexts = [
-  "Hoàng Ngọc Trâm", "Lê nguyên giáp", "27/3/2025",
+  "Đàm Vân Anh", "Thái Huy Tuấn Anh", "14/10/2025",
   ...(window.dataLove2Loveloom && window.dataLove2Loveloom.data.ringTexts ? window.dataLove2Loveloom.data.ringTexts : [])
 ];
 
